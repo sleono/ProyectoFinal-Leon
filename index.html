@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de comisiones</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <main">
+        <div class="intro-calculator">
+            <h1>Calculadora de comisiones</h1>
+            <h2>¡Bienvenido a la Calculadora de Comisiones del Marketplace!</h2>
+            <p>¿Te preguntas cuánto ganarás por cada venta en nuestro marketplace? Con nuestra herramienta, puedes calcular fácilmente la comisión aplicada a tus productos y conocer el monto exacto que recibirás. Solo tienes que seleccionar la categoría de tu producto, ingresar el precio, y la calculadora hará el resto.</p>
+            <p>Simplifica tu proceso de ventas y toma decisiones informadas con nuestra calculadora. ¡Empieza ahora y maximiza tus ganancias!</p>
+        </div>
+        <div class="instructions-calculator">
+            <h3>Instrucciones de uso:</h3>
+            <h4>1. Selecciona la categoría:</h4>
+            <p>En la barra desplegable, elige la categoría a la cual pertenece tu producto. Esta categoría determinará la comisión que se aplicará.</p>
+            <h4>2. Ingresa el precio del producto:</h4>
+            <p>En el campo de "Precio", ingresa el valor en el que planeas vender tu producto. Asegúrate de escribir solo números, sin símbolos ni comas.</p>
+            <h4>3. Obtén los resultados:</h4>
+            <p>La calculadora automáticamente calculará la comisión aplicable a tu producto y te mostrará dos resultados:</p>
+            <p><strong>Comisión:</strong> El porcentaje de comisión de la categoría.</p>
+            <p><strong>Monto Final:</strong> El monto que recibirás después de aplicar la comisión.</p>
+            <h4>4. Verifica y ajusta:</h4>
+            <p></p>Si lo necesitas, el precio para ver cómo afectan los resultados. Juega con diferentes escenarios hasta que estés satisfecho con el resultado.
+        </div>
+        <div class="calculator">
+            <p><strong>Selecciona la categoría de tu producto:</strong></p>
+            <select id="categoria">
+                <option value="">Seleccionar categoría</option>
+                <option value="accesorios">Accesorios</option>
+                <option value="automotriz">Automotriz</option>
+                <option value="belleza">Belleza</option>
+                <option value="calzado">Calzado</option>
+                <option value="consumomasivo">Consumo masivo</option>
+                <option value="decohogar">Decohogar</option>
+                <option value="deporte">Deporte</option>
+                <option value="electrohogar">Electrohogar</option>
+                <option value="infantil">Infantil</option>
+                <option value="mascotas">Mascotas</option>
+                <option value="mejoramientodelhogar">Mejoramiento del hogar</option>
+                <option value="moda">Moda</option>
+                <option value="otrascategorías">Otras categorías</option>
+                <option value="salud">Salud</option>
+                <option value="tecnología">Tecnología</option>
+            </select>
+            <p><strong>Ingresa el precio de tu producto:</strong></p>
+            <input type="number" id="precio" placeholder="Precio" required>
+
+            <p><strong>Comisión de la categoría:</strong></p>
+            <input type="text" id="comision" readonly placeholder="Comisión (%)">
+            
+            <p><strong>Monto final:</strong></p>
+            <input type="text" id="montoFinal" readonly placeholder="Monto final">
+        </div>
+        <div class="calbuttons">
+            <button id="calcularBtn">Calcular</button>
+            <button id="resetBtn">Borrar</button>
+        </div>
+    </main>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
