@@ -1,0 +1,26 @@
+.about-us {
+    
+    .aboutus-text {
+        -webkit-animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both;
+        animation:tracking-in-expand .7s cubic-bezier(.215,.61,.355,1.000) both;
+
+        animation-delay: 0.4s;
+    }
+}
+
+.aboutus-image {
+    width: 300px;
+    height: auto;
+    margin: 10px;
+
+    -webkit-animation:rotate-in-2-tr-cw .5s cubic-bezier(.25,.46,.45,.94) both;
+    animation:rotate-in-2-tr-cw .5s cubic-bezier(.25,.46,.45,.94) both;
+
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
+@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
+
+@-webkit-keyframes rotate-in-2-tr-cw{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:0}100%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}
+@keyframes rotate-in-2-tr-cw{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:0}100%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}

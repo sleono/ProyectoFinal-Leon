@@ -1,0 +1,67 @@
+.carta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin-top: 94px;
+
+    .menu-card {
+        width: 400px;
+        height: 600px;
+        margin-inline: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #FAFAFA;
+
+        -webkit-animation:scale-up-center .4s cubic-bezier(.39,.575,.565,1.000) both;
+        animation:scale-up-center .4s cubic-bezier(.39,.575,.565,1.000) both;
+    }
+
+    .pizza-info {
+        margin-top: 20px;
+        margin-right: 50px;
+        margin-left: 50px;
+        margin-bottom: 20px;
+
+        h3 {
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+        margin-bottom: 20px;
+        background-color: $secondaryColor;
+        color: white;
+        margin-top: 10px;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #c40918;
+        }
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@-webkit-keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%
+{-webkit-transform:scale(1);transform:scale(1)}}
+@keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%
+{-webkit-transform:scale(1);transform:scale(1)}}

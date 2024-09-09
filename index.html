@@ -3,65 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de comisiones</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <title>Pizzaiolo - Inicio</title>
+    <meta name="description" content="Bienvenido a Pizzaiolo, tu destino favorito para las pizzas más deliciosas y auténticas. Explora nuestro menú y disfruta de una experiencia gastronómica única.">
+    <meta name="keywords" content="pizzaiolo, pizza, auténtica pizza, pizza artesanal, pizzería, comida italiana, restaurante de pizza, pizzería cerca">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./img/pizza-icon.png" type="image/x-icon">
 </head>
-<body>
-    <main">
-        <div class="intro-calculator">
-            <h1>Calculadora de comisiones</h1>
-            <h2>¡Bienvenido a la Calculadora de Comisiones del Marketplace!</h2>
-            <p>¿Te preguntas cuánto ganarás por cada venta en nuestro marketplace? Con nuestra herramienta, puedes calcular fácilmente la comisión aplicada a tus productos y conocer el monto exacto que recibirás. Solo tienes que seleccionar la categoría de tu producto, ingresar el precio, y la calculadora hará el resto.</p>
-            <p>Simplifica tu proceso de ventas y toma decisiones informadas con nuestra calculadora. ¡Empieza ahora y maximiza tus ganancias!</p>
-        </div>
-        <div class="instructions-calculator">
-            <h3>Instrucciones de uso:</h3>
-            <h4>1. Selecciona la categoría:</h4>
-            <p>En la barra desplegable, elige la categoría a la cual pertenece tu producto. Esta categoría determinará la comisión que se aplicará.</p>
-            <h4>2. Ingresa el precio del producto:</h4>
-            <p>En el campo de "Precio", ingresa el valor en el que planeas vender tu producto. Asegúrate de escribir solo números, sin símbolos ni comas.</p>
-            <h4>3. Obtén los resultados:</h4>
-            <p>La calculadora automáticamente calculará la comisión aplicable a tu producto y te mostrará dos resultados:</p>
-            <p><strong>Comisión:</strong> El porcentaje de comisión de la categoría.</p>
-            <p><strong>Monto Final:</strong> El monto que recibirás después de aplicar la comisión.</p>
-            <h4>4. Verifica y ajusta:</h4>
-            <p></p>Si lo necesitas, el precio para ver cómo afectan los resultados. Juega con diferentes escenarios hasta que estés satisfecho con el resultado.
-        </div>
-        <div class="calculator">
-            <p><strong>Selecciona la categoría de tu producto:</strong></p>
-            <select id="categoria">
-                <option value="">Seleccionar categoría</option>
-                <option value="accesorios">Accesorios</option>
-                <option value="automotriz">Automotriz</option>
-                <option value="belleza">Belleza</option>
-                <option value="calzado">Calzado</option>
-                <option value="consumomasivo">Consumo masivo</option>
-                <option value="decohogar">Decohogar</option>
-                <option value="deporte">Deporte</option>
-                <option value="electrohogar">Electrohogar</option>
-                <option value="infantil">Infantil</option>
-                <option value="mascotas">Mascotas</option>
-                <option value="mejoramientodelhogar">Mejoramiento del hogar</option>
-                <option value="moda">Moda</option>
-                <option value="otrascategorías">Otras categorías</option>
-                <option value="salud">Salud</option>
-                <option value="tecnología">Tecnología</option>
-            </select>
-            <p><strong>Ingresa el precio de tu producto:</strong></p>
-            <input type="number" id="precio" placeholder="Precio" required>
 
-            <p><strong>Comisión de la categoría:</strong></p>
-            <input type="text" id="comision" readonly placeholder="Comisión (%)">
-            
-            <p><strong>Monto final:</strong></p>
-            <input type="text" id="montoFinal" readonly placeholder="Monto final">
-        </div>
-        <div class="calbuttons">
-            <button id="calcularBtn">Calcular</button>
-            <button id="resetBtn">Borrar</button>
-        </div>
+<body>
+
+<!-- HEADER -->
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html"><img src="./img/Logo.png" alt="Logo de Pizzaiolo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item custom-margin">
+                    <a class="nav-link active text-custom" href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item custom-margin">
+                    <a class="nav-link text-custom" href="./pages/nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item custom-margin">
+                    <a class="nav-link text-custom" href="./pages/carta.html">Carta</a>
+                </li>
+                <li class="nav-item custom-margin">
+                    <a class="nav-link text-custom" href="./pages/locales.html">Locales</a>
+                </li>
+                <li class="nav-item custom-margin">
+                    <a class="nav-link text-custom" href="./pages/contacto.html">Contacto</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+
+<!-- PROMOCIONES -->
+    <main class="home-page">
+        <section class="home-item">
+            <img src="./img/index_banner_1.png" alt="Pizza" class="img-fluid">
+        </section>
+        <section class="hero">
+            <img src="./img/index_banner_2.png" alt="Pizza Amigos" class="img-fluid">
+        </section>
+        <section class="hero">
+            <img src="./img/index_banner_3.png" alt="Pizza Promocion" class="img-fluid">
+        </section>
     </main>
 
-    <script src="./js/main.js"></script>
+<!-- FOOTER -->
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row p-5 bg-custom">
+                <div class="col-md-3 p-3">
+                    <a href="./index.html">
+                    <img src="./img/Logo.png" alt="Logo Pizzaiolo">
+                    </a>
+                    <div class="logo-info p-3">
+                        <p>Encuéntranos en:</p>
+                        <a href="https://www.facebook.com/" class="facebook">
+                        <img src="./img/Facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/" class="instagram">
+                        <img src="./img/Instagram.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.whatsapp.com/" class="whatsapp">
+                        <img src="./img/WhatsApp.png" alt="WhatsApp">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 p-3">
+                    <h4>Contacto</h4>
+                    <p>Teléfono: (01) 7073040</p>
+                    <p>WhatsApp: 970 200 141</p>
+                    <p>Correo: contacto@pizzaiolo.com.pe</p>
+                </div>
+                <div class="col-md-3 p-3">
+                    <h4>Horario de atención</h4>
+                    <p>-Lunes a Viernes: 1p.m. a 9:30p.m.</p>
+                    <p>-Sábado y Domingo: 1p.m. a 11p.m.</p>
+                </div>
+                <div class="col-md-3 p-3">
+                    <h4>Información</h4>
+                    <p><a href="./pages/error.html">Política de privacidad</a></p>
+                    <p><a href="./pages/error.html">Términos y condiciones</a></p>
+                    <a href="./pages/error.html">
+                    <img src="./img/Libro de reclamaciones.png" alt="libro reclamaciones" class="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="./js/main.js"></script>
 </body>
 </html>

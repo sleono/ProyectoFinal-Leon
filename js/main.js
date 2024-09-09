@@ -1,61 +1,56 @@
-const comisiones = {
+// FORMULARIO EN CONTACTO
 
-"accesorios": 0.22,
-"automotriz": 0.13,
-"belleza": 0.20,
-"calzado": 0.22,
-"consumomasivo": 0.15,
-"decohogar": 0.25,
-"deporte": 0.22,
-"electrohogar": 0.12,
-"infantil": 0.22,
-"mascotas": 0.20,
-"mejoramientodelhogar": 0.15,
-"moda": 0.25,
-"otrascategorías": 0.22,
-"salud": 0.18,
-"tecnología": 0.12
-};
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const checkbox = document.getElementById('checkbox');
+    const submitButton = form.querySelector('button[type="submit"]');
 
-const calcularComision = () => {
-    const categoria = document.getElementById("categoria").value;
-    const precio = document.getElementById("precio").value;
+    checkbox.addEventListener('change', function () {
+        submitButton.disabled = !checkbox.checked;
+    });
 
-    if (!categoria) {
-        alert("Por favor, selecciona una categoría antes de calcular.");
-        return;
-    }
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    if (isNaN(precio) || precio <= 0) {
-        alert("El precio no puede ser 0 o un valor menor a 0. Por favor, ingrese un valor mayor a 0.");
-        return;
-    }
+        const nombre = document.getElementById('nombre').value.trim();
+        const dni = document.getElementById('DNI').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const celular = document.getElementById('celular').value.trim();
+        const mensaje = document.getElementById('textarea').value.trim();
 
-    if (categoria && precio > 0) {
-        const porcentajeComision = comisiones[categoria] * 100;
-        const comision = precio * comisiones[categoria];
-        const montoFinal = precio - comision;
-
-        let porcentajeComisionStr = Number.isInteger(porcentajeComision)
-        ? porcentajeComision.toString()
-        : porcentajeComision.toFixed(2);
-
-        document.getElementById("comision").value = `${porcentajeComisionStr}%`;
-        document.getElementById("montoFinal").value = montoFinal.toFixed(2);
+        if (!nombre || !dni || !email || !celular || !mensaje) {
+            alert('Por favor, completa todos los campos antes de enviar.');
+            return;
         }
-};
 
-document.getElementById("precio").addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        calcularComision();
-    }
+        if (dni.length !== 8 || isNaN(dni)) {
+            alert("El DNI debe tener exactamente 8 dígitos numéricos.");
+            return false;
+        }
+
+        if (celular.length !== 9 || celular.charAt(0) !== '9' || isNaN(celular)) {
+            alert("El número de celular debe tener 9 dígitos y comenzar con 9.");
+            return false;
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        if (!validateEmail(email)) {
+            alert('Por favor, ingresa un correo electrónico válido.');
+            return;
+        }
+
+        if (!checkbox.checked) {
+            alert('Debes aceptar las políticas de privacidad antes de enviar el formulario.');
+            return;
+        }
+
+        alert('Gracias por contactarnos, ' + nombre + '. Hemos recibido tu mensaje y te responderemos pronto.');
+
+        form.reset();
+        submitButton.disabled = true;
+    });
 });
-document.getElementById("calcularBtn").addEventListener("click", calcularComision);
-
-const resetCampos = () => {
-    document.getElementById("categoria").value = "";
-    document.getElementById("precio").value = "";
-    document.getElementById("comision").value = "";
-    document.getElementById("montoFinal").value = "";
-};
-document.getElementById("resetBtn").addEventListener("click", resetCampos);
