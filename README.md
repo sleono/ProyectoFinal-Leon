@@ -13,4 +13,4 @@ El proyecto consiste en la creación de un sitio web informativo para la pizzer�
 - **Carta:** Menú con todas las pizzas y sus descripciones.
 - **Locales:** Información sobre las diferentes sucursales.
 - **Contacto:** Formulario para que los usuarios se pongan en contacto.
-- **404:** Página de error personalizada.# JavaScript-PreEntrega2-Leon
+- **404:** Página de error personalizada.
