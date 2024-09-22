@@ -3,7 +3,7 @@
     margin-top: 94px;
 
     .contacto {
-        padding: 30px;
+        padding-top: 30px;
         text-align: center;
         align-items: center;
         width: auto;
@@ -12,6 +12,14 @@
             line-height: 3;
             width: auto;
         }
+    }
+
+    .resultado {
+        text-align: center;
+        align-items: center;
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: red;
     }
 
     form {
@@ -55,7 +63,6 @@
     
     .form-check {
         margin-top: 10px;
-        //display: flex;
         align-items: center;
         margin-bottom: 10px;
 
@@ -64,7 +71,7 @@
             width: auto;
         }
     }
-    
+
     button {
         display: flex;
         background-color: $secondaryColor;

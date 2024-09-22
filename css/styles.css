@@ -260,7 +260,7 @@ body a:hover {
   margin-top: 94px;
 }
 .contact-form .contacto {
-  padding: 30px;
+  padding-top: 30px;
   text-align: center;
   align-items: center;
   width: auto;
@@ -268,6 +268,13 @@ body a:hover {
 .contact-form .contacto p {
   line-height: 3;
   width: auto;
+}
+.contact-form .resultado {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: red;
 }
 .contact-form form {
   display: flex;
