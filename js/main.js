@@ -160,7 +160,7 @@ if (pizzaContainer) {
     // Función para cargar las pizzas desde el JSON
     async function cargarPizzas() {
         try {
-            const response = await fetch('./pizzas.json');
+            const response = await fetch('../pizzas.json');
             const data = await response.json();
             pizzas = data;
             mostrarPizzas();
