@@ -1,0 +1,44 @@
+[
+    {
+    "id": 1,
+    "nombre": "Margarita",
+    "descripcion": "Pizza grande con salsa de tomate, mozzarella fresca, albahaca y un toque de aceite de oliva virgen.",
+    "precio": 25.00,
+    "imagen": "../img/pizza-margarita.jpeg"
+    },
+    {
+    "id": 2,
+    "nombre": "Americana",
+    "descripcion": "Pizza grande con salsa de tomate, mozzarella y jamón bondiola ahumada.",
+    "precio": 30.00,
+    "imagen": "../img/pizza-americana.jpeg"
+    },
+    {
+    "id": 3,
+    "nombre": "Pepperoni",
+    "descripcion": "Pizza grande con salsa de tomate, mozzarella y una generosa cantidad de rodajas de pepperoni.",
+    "precio": 30.00,
+    "imagen": "../img/pizza-pepperoni.jpeg"
+    },
+    {
+    "id": 4,
+    "nombre": "Suprema",
+    "descripcion": "Pizza grande con salsa de tomate, mozzarella, pepperoni, salchichas italianas, pimientos verdes, cebolla, champiñones y aceitunas negras.",
+    "precio": 35.00,
+    "imagen": "../img/pizza-suprema.jpeg"
+    },
+    {
+    "id": 5,
+    "nombre": "Cuatro Estaciones",
+    "descripcion": "Pizza grande con salsa de tomate, mozzarella, cada sección con diferentes ingredientes: alcachofas, jamón, champiñones y aceitunas negras.",
+    "precio": 35.00,
+    "imagen": "../img/pizza-cuatro-estaciones.jpeg"
+    },
+    {
+    "id": 6,
+    "nombre": "Vegetariana",
+    "descripcion": "Pizza grande con salsa de tomate, mozzarella, champiñones, pimientos rojos, cebolla, aceitunas negras, espinacas y tomate fresco.",
+    "precio": 35.00,
+    "imagen": "../img/pizza-vegetariana.jpeg"
+    }
+]

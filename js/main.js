@@ -31,28 +31,42 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-    // Obtener y limpiar los datos ingresados
+        // Obtener y limpiar los datos ingresados
         const nombre = document.getElementById('nombre').value.trim();
         const dni = document.getElementById('DNI').value.trim();
         const email = document.getElementById('email').value.trim();
         const celular = document.getElementById('celular').value.trim();
         const mensaje = document.getElementById('textarea').value.trim();
 
-
-    // Validadores
+        // Validaciones
         if (!nombre || !dni || !email || !celular || !mensaje) {
-            alert('Por favor, completa todos los campos antes de enviar.');
+            Swal.fire({
+                title: 'Campos incompletos',
+                text: 'Por favor, completa todos los campos antes de enviar.',
+                icon: 'warning',
+                confirmButtonText: 'Aceptar'
+            });
             return;
         }
 
         if (dni.length !== 8 || isNaN(dni)) {
-            alert("El DNI debe tener exactamente 8 dígitos numéricos.");
-            return false;
+            Swal.fire({
+                title: 'DNI inválido',
+                text: 'El DNI debe tener exactamente 8 dígitos numéricos.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
         }
 
         if (celular.length !== 9 || celular.charAt(0) !== '9' || isNaN(celular)) {
-            alert("El número de celular debe tener 9 dígitos y comenzar con 9.");
-            return false;
+            Swal.fire({
+                title: 'Número de celular inválido',
+                text: 'El número de celular debe tener 9 dígitos y comenzar con 9.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+            return;
         }
 
         function validateEmail(email) {
@@ -61,16 +75,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (!validateEmail(email)) {
-            alert('Por favor, ingresa un correo electrónico válido.');
+            Swal.fire({
+                title: 'Correo electrónico inválido',
+                text: 'Por favor, ingresa un correo electrónico válido.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
             return;
         }
 
         if (!checkbox.checked) {
-            alert('Debes aceptar las políticas de privacidad antes de enviar el formulario.');
+            Swal.fire({
+                title: 'Políticas de privacidad',
+                text: 'Debes aceptar las políticas de privacidad antes de enviar el formulario.',
+                icon: 'warning',
+                confirmButtonText: 'Aceptar'
+            });
             return;
         }
 
-    // Esto crea un objeto con los datos del formulario para guardar
+        // Crear un objeto con los datos del formulario para guardar
         const formData = {
             nombre: nombre,
             dni: dni,
@@ -82,74 +106,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('formData', JSON.stringify(formData));
 
-    // Mensaje de agradecimiento al usuario
-        alert('Gracias por contactarnos, ' + nombre + '. Hemos recibido tu mensaje y te responderemos pronto.');
+        // Mensaje de agradecimiento al usuario
+        Swal.fire({
+            title: '¡Mensaje enviado!',
+            text: `Gracias por contactarnos, ${nombre}. Hemos recibido tu mensaje y te responderemos pronto.`,
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
 
-    // Actualiza el 'div' de resultado con un mensaje personalizado
+        // Actualiza el 'div' de resultado con un mensaje personalizado
         resultado.innerText = `¡Hola de nuevo, ${nombre}! Ya hemos recibido tu mensaje.`;
 
-    // Limpiar los campos
+        // Limpiar los campos
         form.reset();
 
-    // Deshabilitar el botón de envío hasta que se acepte el checkbox
+        // Deshabilitar el botón de envío hasta que se acepte el checkbox
         submitButton.disabled = true;
     });
 });
 
+
 // CARRITO PIZZAS
 
-// Array de pizzas
-const pizzas = [
-    {
-        id: 1,
-        nombre: 'Margarita',
-        descripcion: 'Pizza grande con salsa de tomate, mozzarella fresca, albahaca y un toque de aceite de oliva virgen.',
-        precio: 25.00,
-        imagen: '../img/pizza-margarita.jpeg'
-    },
-    {
-        id: 2,
-        nombre: 'Americana',
-        descripcion: 'Pizza grande con salsa de tomate, mozzarella y jamón bondiola ahumada.',
-        precio: 30.00,
-        imagen: '../img/pizza-americana.jpeg'
-    },
-    {
-        id: 3,
-        nombre: 'Pepperoni',
-        descripcion: 'Pizza grande con salsa de tomate, mozzarella y una generosa cantidad de rodajas de pepperoni.',
-        precio: 30.00,
-        imagen: '../img/pizza-pepperoni.jpeg'
-    },
-    {
-        id: 4,
-        nombre: 'Suprema',
-        descripcion: 'Pizza grande con salsa de tomate, mozzarella, pepperoni, salchichas italianas, pimientos verdes, cebolla, champiñones y aceitunas negras.',
-        precio: 35.00,
-        imagen: '../img/pizza-suprema.jpeg'
-    },
-    {
-        id: 5,
-        nombre: 'Cuatro Estaciones',
-        descripcion: 'Pizza grande con salsa de tomate, mozzarella, cada sección con diferentes ingredientes: alcachofas, jamón, champiñones y aceitunas negras.',
-        precio: 35.00,
-        imagen: '../img/pizza-cuatro-estaciones.jpeg'
-    },
-    {
-        id: 6,
-        nombre: 'Vegetariana',
-        descripcion: 'Pizza grande con salsa de tomate, mozzarella, champiñones, pimientos rojos, cebolla, aceitunas negras, espinacas y tomate fresco.',
-        precio: 35.00,
-        imagen: '../img/pizza-vegetariana.jpeg'
-    }
-];
+// Para declarar la variable pizzas al inicio
+let pizzas = [];
 
 // Page carta
 const pizzaContainer = document.querySelector('main.carta');
 
 if (pizzaContainer) {
 
+    // Función para mostrar las pizzas
     function mostrarPizzas() {
+        pizzaContainer.innerHTML = '';
+
         pizzas.forEach(pizza => {
             const menuCard = document.createElement('div');
             menuCard.classList.add('menu-card');
@@ -167,7 +157,19 @@ if (pizzaContainer) {
         });
     }
 
-    document.addEventListener('DOMContentLoaded', mostrarPizzas);
+    // Función para cargar las pizzas desde el JSON
+    async function cargarPizzas() {
+        try {
+            const response = await fetch('/pizzas.json');
+            const data = await response.json();
+            pizzas = data;
+            mostrarPizzas();
+        } catch (error) {
+            console.error('Error al cargar las pizzas:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarPizzas);
 
     pizzaContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('agregar-carrito')) {
@@ -177,14 +179,21 @@ if (pizzaContainer) {
     });
 }
 
+// Inicializar el carrito desde localStorage
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 // Función para agregar una pizza al carrito
-function agregarAlCarrito(pizzaId) {
-    const pizzaSeleccionada = pizzas.find(pizza => pizza.id === pizzaId);
-    carrito.push(pizzaSeleccionada);
+const agregarAlCarrito = (pizzaId) => {
+    const pizzaSeleccionada = pizzas.find(({ id }) => id === pizzaId);
+    carrito = [...carrito, pizzaSeleccionada];
     actualizarCarrito();
-    alert(`Pizza ${pizzaSeleccionada.nombre} ha sido agregada al carrito.`);
+
+    Swal.fire({
+        title: '¡Añadido al carrito!',
+        text: `La pizza ${pizzaSeleccionada.nombre} ha sido agregada al carrito.`,
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+    });
 }
 
 // Función para actualizar el carrito y también el contador
@@ -201,6 +210,7 @@ function actualizarContadorCarrito() {
     }
 }
 
+// Actualizar el contador al cargar la página
 document.addEventListener('DOMContentLoaded', actualizarContadorCarrito);
 
 // Modal del carrito (el que está en HTML)
@@ -233,16 +243,60 @@ if (modalCarrito && carritoContenido && totalCarrito && vaciarCarritoBtn) {
     carritoContenido.addEventListener('click', (event) => {
         if (event.target.classList.contains('eliminar-item')) {
             const index = parseInt(event.target.getAttribute('data-index'));
-            carrito.splice(index, 1);
-            actualizarCarrito();
-            mostrarCarrito();
+            const pizzaEliminada = carrito[index];
+    
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: `¿Deseas eliminar la pizza ${pizzaEliminada.nombre} del carrito?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    carrito.splice(index, 1);
+                    actualizarCarrito();
+                    mostrarCarrito();
+                    Swal.fire({
+                        title: 'Eliminado',
+                        text: `La pizza ${pizzaEliminada.nombre} ha sido eliminada del carrito.`,
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            });
         }
-    });
+    });    
 
-// Vaciar el carrito
+    // Vaciar el carrito
     vaciarCarritoBtn.addEventListener('click', () => {
-        carrito = [];
-        actualizarCarrito();
-        mostrarCarrito();
-    });
+        if (carrito.length === 0) {
+            Swal.fire({
+                title: 'El carrito ya está vacío',
+                icon: 'info',
+                confirmButtonText: 'Aceptar'
+            });
+        } else {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: 'Esto eliminará todos los productos del carrito.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, vaciar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    carrito = [];
+                    actualizarCarrito();
+                    mostrarCarrito();
+                    Swal.fire({
+                        title: 'Carrito vacío',
+                        text: 'Todos los productos han sido eliminados del carrito.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            });
+        }
+    });    
 };
